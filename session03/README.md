@@ -1,4 +1,4 @@
-# Session 02
+# React Session 03
 
 Ensure you are in the correct directory. Your path should end in `/unit04-react-starter-files/session02` e.g.
 
