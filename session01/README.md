@@ -2,10 +2,10 @@
 
 ## Task 1: Adding React to a Web Page
 
-### Starter Files Task 01:
+### Starter Files Task 1 and 2:
 
 ```
-- task01
+- session01
     |-- index.html
     |-- index.js
 ```
