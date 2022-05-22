@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 const LogForm = () => {
   const [name, setName] = useState('');
@@ -28,4 +28,8 @@ const LogForm = () => {
   );
 }
 
-ReactDOM.render(<LogForm />, document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root')
+);
+
+root.render(<LogForm />);
