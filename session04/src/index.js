@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 //import bookArray from './models/books.json';
 
 import BookCounter from './components/BookCounter';
