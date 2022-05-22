@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './styles/App.css';
 import Header from './components/Header';
 import BookList from './components/BookList';
@@ -42,19 +42,21 @@ const App = () => {
   return (
     <Router>
       <div className="container">
-        <Route exact path="/" render={() => (
-          <Fragment>
+        <Routes>
+        <Route exact path="/" element={
+          <>
             <Header bookLength={bookcase.length} />
             <BookList books={books} stored="library" addToBookcase={addToBookcase} removeFromBookcase={removeFromBookcase} />
-          </Fragment>
-        )} />
-        <Route path="/bookcase" render={() => (
-          <Fragment>
+          </>
+        } />
+        <Route path="/bookcase" element={
+          <>
             <Header bookLength={bookcase.length} />
             <BookList books={bookcase} stored="bookcase" addToBookcase={addToBookcase} removeFromBookcase={removeFromBookcase} />
-          </Fragment>
-        )} />
+          </>
+        } />
         <Route path="/about" component={() => <About bookLength={bookcase.length} />} />
+        </Routes>
       </div>
     </Router>
   );
