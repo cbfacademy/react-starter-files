@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 //import bookArray from './models/books.json';
 
 import BookCounter from './components/BookCounter';
@@ -14,4 +14,5 @@ const App = () => {
   </Fragment>;
 }
 
-ReactDOM.render(<App/>,document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App/>);
