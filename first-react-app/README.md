@@ -36,7 +36,7 @@ npx create-react-app .
 npm run start
 ```
 
-## Task
+## Task: Create React App
 
 1. Open the [index.html](./public/index.html) file under the **public** folder and change the title tag to **"First Create React App Task"**.
 
@@ -44,7 +44,7 @@ npm run start
 
 1. Make other cosmetic (look-and-feel only) changes to the [App.css](./src/App.css) file and review the changes in your browser
 
-1. Open [App.js](./src/App.js).Review the main function called `App()`. The return statement outputs what looks like HTML elements e.g. `<img>`, `<a>`, `<p>` tags 
+1. Open [App.js](./src/App.js). Review the main function called `App()`. The return statement outputs what looks like HTML elements e.g. `<img>`, `<a>`, `<p>` tags 
 
 1. Change the return statement to output new '**HTML**' elements, e.g.
 
@@ -57,7 +57,7 @@ npm run start
 
 ![Example React App Homepage](./docs/first-react-app.png)
 
-1. Create a style variable for your new `<h1>` element in [App.js](./src/App.js)
+6. Create a style variable for your new `<h1>` element in [App.js](./src/App.js). <br/><br/>**For more information on styling react elements, read [the React help pages][1]**
 
 1. Create a variable called `h1Style`. The attributes of the style object are similar to CSS class attributes but using camelCase:
 
@@ -68,9 +68,41 @@ const h1Style = {
   "textTransform": "uppercase"
 };
 ```
-
-1. Connect the new style object to your `<h1>` element. For more information on styling react elements, read [the React help pages][1]
+8. Connect the new style object to your `<h1>` element. 
 
 ![Example React App Homepage 2](./docs/first-react-app_2.png)
 
 [1]:(https://reactjs.org/docs/dom-elements.html#style)
+
+9. Open  [App.css](./src/App.css) and add a class called `.bio`.
+
+1. Add a className property to the `<h2>` element in the [App.js](./src/App.js) file.
+
+```JavaScript
+className = "bio"
+```
+
+11. Add a short paragraph of text, e.g. _This is my first react page. I created it on …_.
+
+## Task: Testing the Create React App
+
+1. Visit the page https://create-react-app.dev/docs/running-tests for more information about Jest and running tests
+
+1. Open the project in the first-react-app folder
+
+1. Replace the existing test with the following code snippet to the test file [App.test.js](\src\app.test.js)
+
+```JS
+it('renders without crashing', () => {
+  const root = ReactDOM.createRoot(document.createElement('div'));
+  root.render(<App />,root);
+});
+```
+
+3. The test script will fail with a __ReferenceError__ as the `ReactDOM` is not referenced
+
+1. Add a reference to the `ReactDOM` and run the test again. What are the results?
+
+1. Add tests to check that the `<h1>` and `<h2>` elements are render on the page
+
+1. Add a test to check that the text "__My React Page__" can be found on the page.
