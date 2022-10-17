@@ -5,7 +5,7 @@
 ### Starter Files Task 1 and 2:
 
 ```
-- react-wepage
+- react-webpage
     |-- index.html
     |-- index.js
 ```
