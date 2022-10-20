@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+# Bookcase App: My Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Task: My Library App - Interface Components
 
-## Available Scripts
+1. Separate and highlight the possible components of this interface or design your own:<br/>Some example components:
+    - Header
+    - Search Bar
+    - Pagination
+    - Book
+    - List of Books Container
+    - Navigation
 
-In the project directory, you can run:
 
-### `npm start`
+![Example Book App GUI](docs/bookcase-app-gui-example.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Task: My Library App - Install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. In Visual Code open the folder `bookcase-app` folder under the `react-starter-files` folder
 
-### `npm test`
+1. In the Visual Code terminal install the dependencies with the following command: 
+```shell
+npm install
+````
+3. To run the project call the start command from a terminal:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```shell 
+npm start 
+```
+The initial structure of our app will be as follows: 
 
-### `npm run build`
+```JS
+<App>
+    <Book/>
+    <Book/>
+    <Book/>
+    <Book/>
+    {/* Multiple <Book/> elements */}
+</App>
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Each `<Book>` tag is a JSX element and will be a functional component defined in a file called [Book.js][3]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Explore the files in the `bookcase-app` folder.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. __What is displayed in the browser and why❔__
 
-### `npm run eject`
+1. Change the text displayed in the browser
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Using the [`useState`][1] hook set a variable called books containing the [books.json][4] data. <br/><br/>Examples of how to do this can be found in last week's session.<br/><br/>You can also search online for [examples of using `useState` hook][1].
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+const [books] = useState(data);
+```
+7. Instead of returning one single `<Book>` component, use a loop to display all the books in the data object
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Consider using  the JavaScript [`Array.map`][2] function 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+return books.map(book => <Book key={book.id} book={book}/>);
+```
+9. Update the [Book.js][4] file so it returns the attributes of a book e.g.
 
-## Learn More
+```js
+import React from 'react';
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const Book = (props) => {
+   return (
+    <div>
+      {/* Code below displays the book title */}
+      <h2>{props.book.volumeInfo.title}</h2>
+      {
+        /*
+        Add other JSX elements that will return:
+        -Author Name
+        -Thumbnail Image
+        -Book Price 
+        */
+      }
+    </div>
+   );
+}
+export default Book;
+```
+![Example Book in browser](docs/single-book.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+10. Replace the comments in the code with the corresponding properties of your book.
+<br/>_TIP: You can use [object destructuring][5] to unpack the object attributes into variables_
 
-### Code Splitting
+1. Review the [book.json][4] file to understand the available attributes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. In the example we are displaying a book __title__ using [props][6]:
 
-### Analyzing the Bundle Size
+```js
+props.book.volumeInfo.title
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Task: Adding Type Checking
 
-### Making a Progressive Web App
+1. In the __bookcase-app__, add [type checking][7] for the following attributes of the `<Book>` component (_Hint: Add your code to the [Book.js][3] file_)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    - title
+    - authors
+    - retailPrice.amount
+    - description
+    - thumbnailImage
 
-### Advanced Configuration
+1. Add default attributes using the defaultProps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Open the browser's developer tools to see the warning messages returned by the validators
 
-### Deployment
+## Homework: Event Handling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Open the `bookcase-app`
 
-### `npm run build` fails to minify
+1. We should have an [App.js][8] file which returns a list of `<Book/>` components:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```js
+/*App.js returns <Book/> components */
+
+const App = (props) => {
+  const [books] = useState(data);
+  return books.map(book => <Book book={book}/>)
+}
+```
+
+3. Run the app:
+
+```shell
+npm start
+```
+4. In the browser view the console window for the results of clicking the buttons
+
+![Console output](docs/homework-console.png )
+
+[1]:https://reactjs.org/docs/hooks-state.html
+[2]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+[3]:/bookcase-app/src/components/Book.js
+[4]:/bookcase-app/src/models/books.json
+[5]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring
+[6]:https://reactjs.org/docs/components-and-props.html
+[7]:https://reactjs.org/docs/typechecking-with-proptypes.html
+[8]:/bookcase-app/src/App.js
