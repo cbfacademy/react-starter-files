@@ -1,9 +1,9 @@
 import React from 'react';
 import Book from './components/Book';
-import bookList from './models/books.json';
+import data from './models/books.json';
 
 function App() {
-  const books = bookList;
+  const books = data;
   return <Book/>;
 }
 
