@@ -2,14 +2,14 @@ import React from 'react';
 
 function Task(props) {
 
-  function complete(id){
+  function toggleComplete(id){
     console.log(`Task with the id '${id}' was clicked`)
   }
 
   return (
-      <div key={props.id} className={"task"+(props.completed?" checked":"")} >
+      <div className={"task"+(props.isComplete?" checked":"")} >
         <span>{props.title}</span>
-        <span className="status" onClick={() => complete(props.id)}>{props.completed ? "✔️":"🔘"}</span>
+        <span className="status" onClick={() => toggleComplete(props.id)}>{props.isComplete ? "✔️":"🔘"}</span>
       </div>
   );
 }

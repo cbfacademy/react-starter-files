@@ -19,7 +19,7 @@ h1 {
   background-color: #44b2ed;
   color:#fff;
  }
- .task .check{
+ .task .status{
   float:right;
   cursor: pointer;
  }
