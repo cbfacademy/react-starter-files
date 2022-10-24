@@ -31,7 +31,7 @@
 ```javascript
 'use strict';
 
-function ClickButton() {
+function ClickableButton() {
 
   const [clicked, setClick] = React.useState(false);
 
@@ -57,7 +57,7 @@ function ClickButton() {
 }
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(React.createElement(ClickButton));
+root.render(React.createElement(ClickableButton));
 ```
 
 ### 3. Run the code in a browser
