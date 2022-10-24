@@ -62,14 +62,14 @@ root.render(React.createElement(ClickableButton));
 
 ### 3. Run the code in a browser
 
-1. Open the [**index.html**](index.html) file in a browser to test the code is working.
+1. Open the [**index.html**](index.html) file in [Live Server][1] to test the code is working.
 1. What do you think is happening? Investigate and try and understand the code.
 
 #### What's Happening?
 
 ### 4.  Refactor the Code
 
-Refactor (improve) the code by adding an external CSS file instead of using inline CSS style attributes:
+Refactor (improve) the code by adding [an external CSS][2] file instead of using inline CSS style attributes:
 
   1. Create a CSS file called `style.css` and add a `<link>` element in your index.html that connects to the `style.css`.
   1. Add a CSS class called `.main-button` to `style.css`
@@ -106,4 +106,7 @@ if (clicked) {
 
 ![Simple Shopping Interface](docs/simple-shopping-gui.png)
 
-You can find the images in the [imgs](/imgs) folder. 
+You can find the images in the [imgs](/imgs) folder.
+
+[1]:https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+[2]:https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started
