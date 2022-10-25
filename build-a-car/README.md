@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Build a Car
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Task: Write a Car Component
 
-## Available Scripts
+1. The code in the example describes a very simple __functional component__ called `Car`.
 
-In the project directory, you can run:
+1. It will display the text "Hi, I am a Car!"
 
-### `npm start`
+1. Open the [build-a-car][1] folder.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Add a file called __Car.js__ to the components folder 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Copy the example code into the file [Car.js][2]
 
-### `npm test`
+```js
+import React from 'react'
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+export default function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}
+```
 
-### `npm run build`
+6. Open the file [App.js][3]
+1. Add an import statement for the __Car.js__ file
+1. Delete the `<header>` element and it's children
+1. Return the Car component in the App:<br/>The main App should now display the text "Hi, I am a car!"
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Car Component Output](docs/car-text.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+10. Create the following components and call them from your main app:
+  - Bicycle
+  - Truck
+  - Bus
+  - Skateboard
+<br/><br/>Each component should describe itself, e.g. 
+"Hello, I am a Bus"
+"Good Morning, I am a Bicycle"
+"Hey, I'm a Skateboard"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+import React from 'react'
 
-### `npm run eject`
+export default function App() {
+  return (
+    <div className="app">
+		 <Car/>
+		 <Bicycle/>
+		 <Truck/>
+		 <Bus/>
+		 <Skateboard/>
+    </div>
+  );
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Vehicle Component Output](docs/transport-text.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Task: `numberOfWheels` Property
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. If we wanted to pass a property called `numberOfWheels` to our `Car` component we would pass it as a property, for example:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+import Car from "./Car";
 
-## Learn More
+export default function App() {
+  return (
+    <div className="App">
+      <Car numberOfWheels="4"/>
+    </div>
+  );
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. To display the number of wheels for our `Car` component we will need to reference the `numberOfWheels` in our `Car` component return statement
+1. When properties are passed to a component, they are stored in a __props__ object
+1. To reference the property, we need to use dot notation e.g. `props.numberOfWheels`
 
-### Code Splitting
+```js
+export default function Car(props) {
+  return <h2>Hi, I am a Car! I have {props.numberOfWheels} wheels</h2>;
+}
+```
+5. Add the `numberOfWheels` prop to all of the other __components__. Ensure all your components display the correct number of wheels.
+1. Your output should look like this:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Wheels Props Output](docs/transport-props.png)
 
-### Analyzing the Bundle Size
+## Task: Nested Components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Download an image of a wheel or find one [here][4]
 
-### Making a Progressive Web App
+1. Add the image to your project under the (imgs)[5] directory
+1. Add a new file called `Wheel.js` in the components directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```js
+export default function Wheel() {
+  return <img src="imgs/wheel.png" alt="Wheel" style={{ width: "100px" }}/>;
+}
+```
+4. Our new Wheel component will be a child of the Car component.
+1. We nest components by calling the child component inside it.
+1. To display one wheel in our wheel component we can declare it once:
+```js
+export default function Car(props) {
+  return (<>
+        <h2>Hi, I am a Car! I have {props.numberOfWheels} wheels</h2>
+        <Wheel/>
+      </>
+    );
+}
+```
+<br/>Try it for yourself!
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[1]:/build-a-car/
+[2]:/build-a-car/src/components/
+[3]:/build-a-car/src/App.js
+[4]:/build-a-car/docs/docs/wheel.png
+[3]:/build-a-car/public/imgs/
