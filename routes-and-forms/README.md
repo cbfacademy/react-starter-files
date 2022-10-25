@@ -1,99 +1,61 @@
-# Props & States
+# Routes and Forms
 
-## Task: Understanding Props & State
+## Task: Adding Routes
 
-1. Open this folder in VS Code. Open a terminal
+1. Open the [routes-and-pages][1] folder. In the [index.js][2] there are two routes defined, `Home` and `Kittens`
 
-1. The `props-and-state` folder contains a React project created using the `create-react-app` command
+1. Each route has a `<Link/>` component defined
 
-1. In your terminal window install the dependencies by running the command below:
+1. Run the `npm install` command from the terminal to install the project dependencies. Run `npm start` to start the project
 
-```shell
-npm install
-```
-4. Run the project from the terminal using the following command:
+1. Create `<Puppies/>` and `<Ducklings/>` functional component. Use the `<Kittens/>` component as an example 
 
-```shell
-npm start
-```
-5. Explore the code in [index.js](src/index.js) and [components/GadgetList.js](src/components/GadgetList.js) file. Try to  understand how the code relates to the HTML that is displayed on the screen.
+1. Add another two routes called `<Puppies/>` and `<Ducklings/>` to the [index.js][2]
 
-1. The following will be displayed when the project is run:
-![Example Output](docs/electronics-store-list.png)
+1. When complete, navigating to __localhost:3000/*puppies*__ or __localhost:3000/*ducklings*__ will take you to the two new component views you created
 
-- The index.js file sets a variable with an array of objects called headphones
-```JS
-const headphones =  [....];
-```
+1. Add a Link for the `<Puppies/>` view and to the `<Ducklings/>` view to enable users to navigate to the components using  breadcrumb links
 
-Each object has a title property.
+1. Ensure the new component returns a short __description__ and __image__, e.g. the Kitten component
 
-```JS
-{"title":"Headphones 1"}
-```
+1. When complete, you should be able to navigate between the components using links in the breadcrumb
 
-- Review the code, find the `useState` hook. 
+![Cute Pets Interface](./docs/cute-pet-store.png)
 
-- What do you think it is doing? 
+## Task 2: Building a Form
 
-- Read the React documentation on [React Hooks](https://reactjs.org/docs/hooks-intro.html) for more information.
-```JS
-const [headphonesList] = useState(headphones);
+1. In Visual Code open the [routes-and-forms][1] folder
+
+1. The [PetForm.js][2] file now contains the code for a [__controlled component__][4].
+
+1. Add the `<PetForm/>` component as a child component of the `<Home/>` component in the [index.js][2] file.
+
+1. Run the project using the `npm start` command to test the functionality
+
+1. The form contains a __name__ field which is a __controlled component__. Add an __age__ and a __colours__ form field as __controlled components__:
+
+```XML
+<label>Age: <input type="number"/></label>
+<label>Colours: <input type="text"/></label>
 ```
 
-7. Add another object to the headphones variable:
-```JS
-{"title":"Headphones 5"}
+6. Ensure the state (value) of the elements are updated when the details are entered into the form fields
+
+1. Display the submitted values on the page in the results section
+
+1. Use a React.Fragment or short syntax (`<></>`) instead of a `<div>` to encapsulate the form
+
+1. Add a message "__*Thank you for submitting*__" to the output displayed in the `<div></div>` whenever the form is submitted
+
+1. Ensure the message "__*Thank you for submitting*__" is removed whenever the user changes an input field. <br/><br/>*Hint: add a React Hook that sets a variable when the form is submitted, e.g:*
+```js
+const [hasSumitted, setSubmitted] = useState(false);
 ```
+11. Conditionally display "__*Thank you for submitting*__" depending on if `hasSumitted` is true or false
 
-8. Add a price attribute to all the headphone objects 
+![Cute Pets Interface Form](./docs/cute-pet-store-form.png)
 
-```JS
-{"title":"Headphones 5", "price":358.99}
-```
-
-9. Update the [GadgetList.js](src/components/GadgetList.js) to display the price.
-
-1. Add style attributes to the `title` and `price` to improve the display:
-![Example Output](docs/electornic-store-task1.png)
-
-11. Open the developer tools in your browser. Although the code compiles and runs successfully you should see this warning:
-![Warning](docs/key-warning.png)
-
-12. Follow the [link to more information](https://reactjs.org/link/warning-keys) to resolve the warning in the code. 
-
-_Hint: you will need to add unique IDs/Keys to each headphones object and add a key attribute when displaying them in the `GadgetList` component_
-
-## Task: useState Hook - ClickCounter.js
-
-1. Create a new file called ClickCounter.js under the components  folder
-
-1. Add the code for a functional component called ClickCounter that increments a counter when a button is clicked
-
-_HINT: Use the code from the  previous slide_
-
-![Click Counter](docs/clickcount.png)
-
-3. Add a button called "Unclick". When a user clicks "Unclick", decrement the counter accordingly
-
-1. Ensure the counter cannot go below 0
-
-1. Add some style to the `<ClickCounter/>` component’s elements
-
-![Click Counter](docs/clickcount2.png)
-
-## Task: Import External JSON  Data
-
-1. Open this project (__props-and-state__) in Visual Code
-
-1. The file [src/models/headphones.json](src/models/headphones.json) contains a list of objects with more attributes such as __price__ and image fields
-
-1. Add the import code to the [index.js](src/index.js) file to import the JSON into a variable which can be passed to the `useState` hook.
-
-1. Update the code to display all the titles in the [headphones.json](src/models/headphones.json) file. You can do this by updating the variable passed to the `useState` hook
-
-1. The image attribute in the [headphones.json](src/models/headphones.json) file point to images in the [public/imgs](public/imgs/) folder, e.g [imgs/dre-beats4.png](public/imgs/dre-beats4.png)
-
-1. Display the images using an image element: `<img src='' alt=''/>` . You will need to update the code in the [GadgetList.js](src/components/GadgetList.js) file.
-
-![Warning](docs/electronics-store.png)
+[1]:/routes-and-forms/
+[2]:/routes-and-forms/src/index.js
+[3]:/routes-and-forms/src/components/PetForm.js
+[4]:https://reactjs.org/docs/forms.html
