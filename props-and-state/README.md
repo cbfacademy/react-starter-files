@@ -21,7 +21,7 @@ npm start
 1. The following will be displayed when the project is run:
 ![Example Output](docs/electronics-store-list.png)
 
-- The index.js file sets a variable with an array of objects called headphones
+- The [index.js](src/index.js) file sets a variable with an array of objects called headphones
 ```JS
 const headphones =  [....];
 ```
@@ -75,6 +75,8 @@ _HINT: Use the code from the  previous slide_
 ![Click Counter](docs/clickcount.png)
 
 3. Add a button called "Unclick". When a user clicks "Unclick", decrement the counter accordingly
+
+1. You'll need to add code to [index.js](src/index.js) to add the new component to the page
 
 1. Ensure the counter cannot go below 0
 

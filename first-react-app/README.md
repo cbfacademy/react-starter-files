@@ -86,23 +86,56 @@ className = "bio"
 
 ## Task: Testing the Create React App
 
-1. Visit the page https://create-react-app.dev/docs/running-tests for more information about Jest and running tests
+Visit the page [React page on testing with Jest][1] for more information about Jest and running tests.
 
-1. Open the project in the first-react-app folder
+Also
 
-1. Replace the existing test with the following code snippet to the test file [App.test.js](\src\app.test.js)
+1. Open this project ([first-react-app][2]) in Visual Studio Code
+
+1. Open the file [App.test.js][3]. If you run the `npm test` command from the command line, the existing test will fail. Why?
+
+1. Update the existing test to check for the text "My React Page" on the page
+
+```js
+
+test('renders h1', () => {
+  render(<App />);
+  const h1 = screen.getByText(/My React Page/i);
+  expect(h1).toBeInTheDocument();
+});
+
+```
+
+4. Add the following test to check if the application loads without crashing:
+
+1. The test script will fail with the __ReferenceError__ as the `act` and `ReactDOM` are not defined
 
 ```JS
-it('renders without crashing', () => {
-  const root = ReactDOM.createRoot(document.createElement('div'));
-  root.render(<App />,root);
+test('renders without crashing', () => {
+  act(() => {
+    const root = ReactDOM.createRoot(document.createElement('div'));
+    root.render(<App />);
+  });
 });
 ```
 
-3. The test script will fail with a __ReferenceError__ as the `ReactDOM` is not referenced
+6. Import [`act`][4] and the `ReactDOM`  from their respective packages:
+<br/> Run the test again. What is the results?
 
-1. Add a reference to the `ReactDOM` and run the test again. What are the results?
+```js
+import { act } from 'react-dom/test-utils';
+import ReactDOM from 'react-dom/client';
+```
 
-1. Add tests to check that the `<h1>` and `<h2>` elements are render on the page
+7. Add another test to check for the `<h2>` element you added in the previous task. Try searching for the text you enetered for the `<h2>` element e.g.
 
-1. Add a test to check that the text "__My React Page__" can be found on the page.
+```js  
+const h2 = screen.getByText(/This is my first React page.+/i);
+```
+The query above is trying to match any element on the screen that starts with the sentence *'This is my first React page'* using [regular expressions][5].
+
+[1]:https://create-react-app.dev/docs/running-tests
+[2]:/first-react-app/
+[3]:/first-react-app/src/App.test.js 
+[4]:https://reactjs.org/docs/test-utils.html
+[5]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
