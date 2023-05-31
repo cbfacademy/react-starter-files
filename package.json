@@ -1,0 +1,35 @@
+{
+  "name": "react-starter-files",
+  "version": "1.0.0",
+  "description": "In this repository you will find the starter files for all the React sessions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbfacademy/react-starter-files.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbfacademy/react-starter-files/issues"
+  },
+  "homepage": "https://github.com/cbfacademy/react-starter-files#readme",
+  "workspaces": [
+    "bookcase-app/*",
+    "build-a-car/*",
+    "component-homework/*",
+    "consuming-apis/*",
+    "first-react-app/*",
+    "jsx-components/**/*",
+    "nesting-and-events/*",
+    "props-and-state/*",
+    "react-webpage/*",
+    "routes-and-forms/*"
+  ],
+  "devDependencies": {
+    "lerna": "^6.6.2"
+  }
+}
