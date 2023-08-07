@@ -30,6 +30,6 @@
     "routes-and-forms/*"
   ],
   "devDependencies": {
-    "lerna": "^6.6.2"
+    "lerna": "^7.1.4"
   }
 }
