@@ -8,9 +8,9 @@
 
 1. Open the [build-a-car][1] folder.
 
-1. Add a file called __Car.js__ to the components folder 
+1. Add a file called __Car.jsx__ to the components folder 
 
-1. Copy the example code into the file [Car.js][2]
+1. Copy the example code into the file [Car.jsx][2]
 
 ```js
 import React from 'react'
@@ -20,8 +20,8 @@ export default function Car() {
 }
 ```
 
-6. Open the file [App.js][3]
-1. Add an import statement for the __Car.js__ file
+6. Open the file [App.jsx][3]
+1. Add an import statement for the __Car.jsx__ file
 1. Delete the `<header>` element and it's children
 1. Return the Car component in the App:<br/>The main App should now display the text "Hi, I am a car!"
 
@@ -91,7 +91,7 @@ export default function Car(props) {
 1. Download an image of a wheel or find one [here][4]
 
 1. Add the image to your project under the (imgs)[5] directory
-1. Add a new file called `Wheel.js` in the components directory:
+1. Add a new file called `Wheel.jsx` in the components directory:
 
 ```js
 export default function Wheel() {
@@ -115,6 +115,6 @@ export default function Car(props) {
 
 [1]:/build-a-car/
 [2]:/build-a-car/src/components/
-[3]:/build-a-car/src/App.js
+[3]:/build-a-car/src/App.jsx
 [4]:/build-a-car/docs/docs/wheel.png
 [3]:/build-a-car/public/imgs/
