@@ -38,7 +38,7 @@ The initial structure of our app will be as follows:
 </App>
 ```
 
-Each `<Book>` tag is a JSX element and will be a functional component defined in a file called [Book.js][3]
+Each `<Book>` tag is a JSX element and will be a functional component defined in a file called [Book.jsx][3]
 
 Explore the files in the `bookcase-app` folder.
 
@@ -58,7 +58,7 @@ const [books] = useState(data);
 ```js
 return books.map(book => <Book key={book.id} book={book}/>);
 ```
-9. Update the [Book.js][4] file so it returns the attributes of a book e.g.
+9. Update the [Book.jsx][4] file so it returns the attributes of a book e.g.
 
 ```js
 import React from 'react';
@@ -96,7 +96,7 @@ props.book.volumeInfo.title
 
 ## Task: Adding Type Checking
 
-1. In the __bookcase-app__, add [type checking][7] for the following attributes of the `<Book>` component (_Hint: Add your code to the [Book.js][3] file_)
+1. In the __bookcase-app__, add [type checking][7] for the following attributes of the `<Book>` component (_Hint: Add your code to the [Book.jsx][3] file_)
 
     - title
     - authors
@@ -112,10 +112,10 @@ props.book.volumeInfo.title
 
 1. Open the `bookcase-app`
 
-1. We should have an [App.js][8] file which returns a list of `<Book/>` components:
+1. We should have an [App.jsx][8] file which returns a list of `<Book/>` components:
 
 ```js
-/*App.js returns <Book/> components */
+/*App.jsx returns <Book/> components */
 
 const App = (props) => {
   const [books] = useState(data);
@@ -134,9 +134,9 @@ npm start
 
 [1]:https://reactjs.org/docs/hooks-state.html
 [2]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-[3]:/bookcase-app/src/components/Book.js
+[3]:/bookcase-app/src/components/Book.jsx
 [4]:/bookcase-app/src/models/books.json
 [5]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring
 [6]:https://reactjs.org/docs/components-and-props.html
 [7]:https://reactjs.org/docs/typechecking-with-proptypes.html
-[8]:/bookcase-app/src/App.js
+[8]:/bookcase-app/src/App.jsx
