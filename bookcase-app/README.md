@@ -126,7 +126,7 @@ const App = (props) => {
 3. Run the app:
 
 ```shell
-npm start
+npm run dev
 ```
 4. In the browser view the console window for the results of clicking the buttons
 
