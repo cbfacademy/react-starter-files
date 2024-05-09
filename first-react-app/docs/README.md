@@ -38,6 +38,7 @@ Run the following command to initialise the React app
 
 ```shell
 npm install
+npm run dev
 ```
 
 ## Task: Configure Your React App
@@ -78,9 +79,9 @@ const h1Style = {
 
 [1]:(https://reactjs.org/docs/dom-elements.html#style)
 
-1. Open [App.css](./src/App.css) and add a class called `.bio`.
+9. Open [App.css](./src/App.css) and add a class called `.bio`.
 
-2. Add a className property to the `<h2>` element in the [App.jsx](./src/App.jsx) file.
+10. Add a className property to the `<h2>` element in the [App.jsx](./src/App.jsx) file.
 
 ```JavaScript
 className = "bio"
@@ -92,13 +93,15 @@ className = "bio"
 
 ### Install Test Libraries
 
-1. Install Vitest and the React Testing Library as *dev dependencies*. A dev dependency is one that is only needed for the purposes of developing a library or application, but isn't required for deployment or execution. We install a dependency as dev only by using the `--save-dev` flag.
+1. Stop the React server by pressing `q` then `Enter`, or open a new terminal.
+
+2. Install Vitest and the React Testing Library as *dev dependencies*. A dev dependency is one that is only needed for the purposes of developing a library or application, but isn't required for deployment or execution. We install a dependency as dev only by using the `--save-dev` flag.
 
 ```shell
 npm install --save-dev jest-dom vitest @testing-library/jest-dom @testing-library/react
 ```
 
-2. Add a `test` script to the package.json file to allow easy execution of any defined tests.
+3. Add a `test` script to the package.json file to allow easy execution of any defined tests.
 
 ```json
 {
@@ -110,7 +113,7 @@ npm install --save-dev jest-dom vitest @testing-library/jest-dom @testing-librar
 }
 ```
 
-3. Add the `test.environment` property to the vitest.config.js file to enable Vite's integration with JSDom.
+4. Add the `test.environment` property to the vitest.config.js file to enable Vite's integration with JSDom.
 
 ```js
 export default defineConfig({
@@ -143,7 +146,7 @@ afterEach(() => {
 });
 ```
 
-Run the following command to start the test runner. The test runner will continue running and monitor any changes to the tests or classes until you close it by pressing `q` then `Enter`.
+4. Run the following command to start the test runner. The test runner will continue running and monitor any changes to the tests or classes until you close it by pressing `q` then `Enter`.
 
 ```shell
 npm test
@@ -151,7 +154,7 @@ npm test
 
 What is the result of the first test run?
 
-1. Add the following test to check if the application loads without crashing and ensure the test passes:
+5. Add the following test to check if the application loads without crashing and ensure the test passes:
 
 ```JS
 describe("App", () => {
@@ -163,7 +166,7 @@ describe("App", () => {
 });
 ```
 
-5. Add the following test inside the `describe()` function body to check for specific content on the page and ensure the test passes:
+6. Add the following test inside the `describe()` function body to check for specific content on the page and ensure the test passes:
 
 ```js
   it("renders the <h1> element", () => {
@@ -174,7 +177,7 @@ describe("App", () => {
   });
 ```
 
-6. Add another test to check for the `<h2>` element you added in the previous task. Try searching for the text you enetered for the `<h2>` element e.g.
+7. Add another test to check for the `<h2>` element you added in the previous task. Try searching for the text you enetered for the `<h2>` element e.g.
 
 ```js  
 const h2 = screen.getByText(/This is my first React page.+/i);
