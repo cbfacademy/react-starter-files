@@ -7,46 +7,50 @@ pwd
 /react-starter-files/first-react-app
 ```
 
-## NPM and Node.js Versions
+## Prerequisites
 
-To run the `create-react-app` you’ll need to have `Node >= 14.0.0` and `npm >= 5.6` on your machine. 
+To run `vite`, you'll need to have Node 18.x or 20.x installed on your machine. 
 
-To check your node.js version run the following command:
+To check your node.jsx version run the following command:
 
 ```shell
 node -v
 ```
 
-To check your npm version run the following command:
-
-```shell
-npm -v
-```
-
-[Update to the latest stable versions of Node](https://nodejs.org/en/) if you Node version is **earlier** than **14.0.0**.
+[Update to the latest stable version of Node](https://nodejs.org/en/) if your Node version is **earlier** than **18.0.0**.
 
 Once the code is successfully installed, you will have a simple React single page application.
 
-## Create React App
+## Task: Create Your React App
 
-Run the following commands to create and start the react app in the current directory
+Run the following command to create a React app in the current directory:
 
 ```shell
-npx create-react-app .
-npm run start
+npm create vite@latest .
+```
+Answer the prompts as follows:
+
+- `Current directory is not empty. Please choose how to proceed:` **Ignore files and continue**
+- `Select a framework:` **React**
+- `Select a variant:` **JavaScript**
+
+Run the following command to initialise the React app
+
+```shell
+npm install
 ```
 
-## Task: Create React App
+## Task: Configure Your React App
 
-1. Open the [index.html](./public/index.html) file under the **public** folder and change the title tag to **"First Create React App Task"**.
+1. Open the [index.html](./index.html) file under the root folder and change the title tag to **"First React App"**.
 
-1. Open the [App.css](./src/App.css) file under the **src** folder and change the application background colour.
+2. Open the [index.css](./src/index.css) file under the **src** folder and change the background colour of the `:root` pseudo-element.
 
-1. Make other cosmetic (look-and-feel only) changes to the [App.css](./src/App.css) file and review the changes in your browser
+3. Make other cosmetic (look-and-feel only) changes to the [index.css](./src/index.css) and [App.css](./src/App.css) stylesheets and review the changes in your browser
 
-1. Open [App.js](./src/App.js). Review the main function called `App()`. The return statement outputs what looks like HTML elements e.g. `<img>`, `<a>`, `<p>` tags 
+4. Open [App.jsx](./src/App.jsx). Review the main function called `App()`. The return statement outputs what looks like HTML elements e.g. `<img>`, `<a>`, `<p>` tags 
 
-1. Change the return statement to output new '**HTML**' elements, e.g.
+5. Change the return statement to output new '**HTML**' elements, e.g.
 
 ``` HTML
 <div className="App">
@@ -55,9 +59,9 @@ npm run start
 </div>
 ```
 
-![Example React App Homepage](./docs/first-react-app.png)
+![Example React App Homepage](./first-react-app.png)
 
-6. Create a style variable for your new `<h1>` element in [App.js](./src/App.js). <br/><br/>**For more information on styling react elements, read [the React help pages][1]**
+6. Create a style variable for your new `<h1>` element in [App.jsx](./src/App.jsx). <br/><br/>**For more information on styling react elements, read [the React help pages][1]**
 
 1. Create a variable called `h1Style`. The attributes of the style object are similar to CSS class attributes but using camelCase:
 
@@ -70,13 +74,13 @@ const h1Style = {
 ```
 8. Connect the new style object to your `<h1>` element. 
 
-![Example React App Homepage 2](./docs/first-react-app_2.png)
+![Example React App Homepage 2](./first-react-app_2.png)
 
 [1]:(https://reactjs.org/docs/dom-elements.html#style)
 
-9. Open  [App.css](./src/App.css) and add a class called `.bio`.
+1. Open [App.css](./src/App.css) and add a class called `.bio`.
 
-1. Add a className property to the `<h2>` element in the [App.js](./src/App.js) file.
+2. Add a className property to the `<h2>` element in the [App.jsx](./src/App.jsx) file.
 
 ```JavaScript
 className = "bio"
@@ -84,58 +88,100 @@ className = "bio"
 
 11. Add a short paragraph of text, e.g. _This is my first react page. I created it on …_.
 
-## Task: Testing the Create React App
+## Task: Test Your React App
 
-Visit the page [React page on testing with Jest][1] for more information about Jest and running tests.
+### Install Test Libraries
 
-Also
+1. Install Vitest and the React Testing Library as *dev dependencies*. A dev dependency is one that is only needed for the purposes of developing a library or application, but isn't required for deployment or execution. We install a dependency as dev only by using the `--save-dev` flag.
+
+```shell
+npm install --save-dev jest-dom vitest @testing-library/jest-dom @testing-library/react
+```
+
+2. Add a `test` script to the package.json file to allow easy execution of any defined tests.
+
+```json
+{
+  "scripts": {
+    // other existing scripts...
+    "preview": "vite preview", // IMPORTANT: Make sure to add a comma after the previous script!
+    "test": "vitest"
+  }
+}
+```
+
+3. Add the `test.environment` property to the vitest.config.js file to enable Vite's integration with JSDom.
+
+```js
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: "jsdom",
+  },
+});
+```
+
+Visit the [Vitest guide][1] for more information about Vitest and running tests.
+
+### Set Up Tests
 
 1. Open this project ([first-react-app][2]) in Visual Studio Code
 
-1. Open the file [App.test.js][3]. If you run the `npm test` command from the command line, the existing test will fail. Why?
+2. Create a file in the **src** directory called `App.test.jsx`
 
-1. Update the existing test to check for the text "My React Page" on the page
+3. Add the following test to check for the text "My React Page" on the page:
 
 ```js
+import { afterEach, describe, expect, it } from "vitest"; // imports the describe and it functions from the Vitest library
+import { cleanup, render, screen } from "@testing-library/react"; // imports the render and screen functions from the React Testing Library
+import "@testing-library/jest-dom/vitest";
+import App from "./App"; // imports the App component that we're testing
 
-test('renders h1', () => {
-  render(<App />);
-  const h1 = screen.getByText(/My React Page/i);
-  expect(h1).toBeInTheDocument();
+// runs a clean after each test case (e.g. clearing jsdom)
+afterEach(() => {
+  cleanup();
 });
-
 ```
 
-4. Add the following test to check if the application loads without crashing:
+Run the following command to start the test runner. The test runner will continue running and monitor any changes to the tests or classes until you close it by pressing `q` then `Enter`.
 
-1. The test script will fail with the __ReferenceError__ as the `act` and `ReactDOM` are not defined
+```shell
+npm test
+```
+
+What is the result of the first test run?
+
+1. Add the following test to check if the application loads without crashing and ensure the test passes:
 
 ```JS
-test('renders without crashing', () => {
-  act(() => {
-    const root = ReactDOM.createRoot(document.createElement('div'));
-    root.render(<App />);
+describe("App", () => {
+  it("renders the App component", () => {
+    render(<App />);
+
+    screen.debug(); // prints the rendered JSX from the App component to the command line
   });
 });
 ```
 
-6. Import [`act`][4] and the `ReactDOM`  from their respective packages:
-<br/> Run the test again. What is the results?
+5. Add the following test inside the `describe()` function body to check for specific content on the page and ensure the test passes:
 
 ```js
-import { act } from 'react-dom/test-utils';
-import ReactDOM from 'react-dom/client';
+  it("renders the <h1> element", () => {
+    render(<App />);
+
+    const h1 = screen.getByText(/My React Page/i); // captures an element matching the specified text
+    expect(h1).toBeInTheDocument(); // checks that the expected element exists in the document
+  });
 ```
 
-7. Add another test to check for the `<h2>` element you added in the previous task. Try searching for the text you enetered for the `<h2>` element e.g.
+6. Add another test to check for the `<h2>` element you added in the previous task. Try searching for the text you enetered for the `<h2>` element e.g.
 
 ```js  
 const h2 = screen.getByText(/This is my first React page.+/i);
 ```
-The query above is trying to match any element on the screen that starts with the sentence *'This is my first React page'* using [regular expressions][5].
+The query above is trying to match any element on the screen that starts with the sentence *'This is my first React page'* using [regular expressions][4].
 
-[1]:https://create-react-app.dev/docs/running-tests
+[1]:https://vitest.dev/guide/
 [2]:/first-react-app/
-[3]:/first-react-app/src/App.test.js 
-[4]:https://reactjs.org/docs/test-utils.html
-[5]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+[3]:/first-react-app/src/App.test.jsx 
+[4]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
