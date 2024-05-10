@@ -16,12 +16,12 @@ npm install
 ```shell
 npm start
 ```
-5. Explore the code in [index.js](src/index.js) and [components/GadgetList.js](src/components/GadgetList.js) file. Try to  understand how the code relates to the HTML that is displayed on the screen.
+5. Explore the code in [index.jsx](src/index.jsx) and [components/GadgetList.jsx](src/components/GadgetList.jsx) file. Try to  understand how the code relates to the HTML that is displayed on the screen.
 
 1. The following will be displayed when the project is run:
 ![Example Output](docs/electronics-store-list.png)
 
-- The [index.js](src/index.js) file sets a variable with an array of objects called headphones
+- The [index.jsx](src/index.jsx) file sets a variable with an array of objects called headphones
 ```JS
 const headphones =  [....];
 ```
@@ -52,7 +52,7 @@ const [headphonesList] = useState(headphones);
 {"title":"Headphones 5", "price":358.99}
 ```
 
-9. Update the [GadgetList.js](src/components/GadgetList.js) to display the price.
+9. Update the [GadgetList.jsx](src/components/GadgetList.jsx) to display the price.
 
 1. Add style attributes to the `title` and `price` to improve the display:
 ![Example Output](docs/electornic-store-task1.png)
@@ -64,9 +64,9 @@ const [headphonesList] = useState(headphones);
 
 _Hint: you will need to add unique IDs/Keys to each headphones object and add a key attribute when displaying them in the `GadgetList` component_
 
-## Task: useState Hook - ClickCounter.js
+## Task: useState Hook - ClickCounter.jsx
 
-1. Create a new file called ClickCounter.js under the components  folder
+1. Create a new file called ClickCounter.jsx under the components folder
 
 1. Add the code for a functional component called ClickCounter that increments a counter when a button is clicked
 
@@ -76,7 +76,7 @@ _HINT: Use the code from the  previous slide_
 
 3. Add a button called "Unclick". When a user clicks "Unclick", decrement the counter accordingly
 
-1. You'll need to add code to [index.js](src/index.js) to add the new component to the page
+1. You'll need to add code to [index.jsx](src/index.jsx) to add the new component to the page
 
 1. Ensure the counter cannot go below 0
 
@@ -90,12 +90,12 @@ _HINT: Use the code from the  previous slide_
 
 1. The file [src/models/headphones.json](src/models/headphones.json) contains a list of objects with more attributes such as __price__ and image fields
 
-1. Add the import code to the [index.js](src/index.js) file to import the JSON into a variable which can be passed to the `useState` hook.
+1. Add the import code to the [index.jsx](src/index.jsx) file to import the JSON into a variable which can be passed to the `useState` hook.
 
 1. Update the code to display all the titles in the [headphones.json](src/models/headphones.json) file. You can do this by updating the variable passed to the `useState` hook
 
 1. The image attribute in the [headphones.json](src/models/headphones.json) file point to images in the [public/imgs](public/imgs/) folder, e.g [imgs/dre-beats4.png](public/imgs/dre-beats4.png)
 
-1. Display the images using an image element: `<img src='' alt=''/>` . You will need to update the code in the [GadgetList.js](src/components/GadgetList.js) file.
+1. Display the images using an image element: `<img src='' alt=''/>` . You will need to update the code in the [GadgetList.jsx](src/components/GadgetList.jsx) file.
 
 ![Warning](docs/electronics-store.png)
