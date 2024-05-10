@@ -98,7 +98,7 @@ className = "bio"
 2. Install Vitest and the React Testing Library as *dev dependencies*. A dev dependency is one that is only needed for the purposes of developing a library or application, but isn't required for deployment or execution. We install a dependency as dev only by using the `--save-dev` flag.
 
 ```shell
-npm install --save-dev jest-dom vitest @testing-library/jest-dom @testing-library/react
+npm install --save-dev vitest @testing-library/jest-dom @testing-library/react
 ```
 
 3. Add a `test` script to the package.json file to allow easy execution of any defined tests.
@@ -113,7 +113,7 @@ npm install --save-dev jest-dom vitest @testing-library/jest-dom @testing-librar
 }
 ```
 
-4. Add the `test.environment` property to the vitest.config.js file to enable Vite's integration with JSDom.
+4. Add the `test.environment` property to the vite.config.js file to enable Vite's integration with JSDom.
 
 ```js
 export default defineConfig({
