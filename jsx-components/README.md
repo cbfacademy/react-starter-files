@@ -75,7 +75,7 @@ npm install
 
 3. Move the `Profile()` function code from the previous task ([task01/src/index.jsx](task01/src/index.jsx)) into the [src/Profile.jsx](task02/src/Profile.jsx) file.
 
-4. Replace the `Profile()` function call in the [task01/src/index.jsx](task01/src/index.jsx) file with a call to the JSX component. The component should  be called using XML-like syntax, eg. `<Profile>`
+4. Replace the string returned in the [task02/src/index.jsx](task02/src/index.jsx) file with a call to the JSX component. The component should  be called using XML-like syntax, eg. `<Profile /`>`
 
 5. Update the `Profile()` function to take one argument called `props`
 
