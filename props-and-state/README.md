@@ -14,7 +14,7 @@ npm install
 4. Run the project from the terminal using the following command:
 
 ```shell
-npm start
+npm run dev
 ```
 5. Explore the code in [index.jsx](src/index.jsx) and [components/GadgetList.jsx](src/components/GadgetList.jsx) file. Try to  understand how the code relates to the HTML that is displayed on the screen.
 
