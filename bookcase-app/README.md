@@ -21,10 +21,10 @@
 ```shell
 npm install
 ````
-3. To run the project call the start command from a terminal:
+1. To run the project, call the `dev` script from a terminal:
 
 ```shell 
-npm start 
+npm run dev 
 ```
 The initial structure of our app will be as follows: 
 
