@@ -6,7 +6,7 @@
 
 1. Each route has a `<Link/>` component defined
 
-1. Run the `npm install` command from the terminal to install the project dependencies. Run `npm start` to start the project
+1. Run the `npm install` command from the terminal to install the project dependencies. Run `npm run dev` to start the project
 
 1. Create `<Puppies/>` and `<Ducklings/>` functional component. Use the `<Kittens/>` component as an example 
 
@@ -30,7 +30,7 @@
 
 1. Add the `<PetForm/>` component as a child component of the `<Home/>` component in the [index.js][2] file.
 
-1. Run the project using the `npm start` command to test the functionality
+1. Run the project using the `npm run dev` command to test the functionality
 
 1. The form contains a __name__ field which is a __controlled component__. Add an __age__ and a __colours__ form field as __controlled components__:
 
