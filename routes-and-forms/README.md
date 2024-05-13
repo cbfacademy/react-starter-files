@@ -24,7 +24,7 @@
 
 ## Task 2: Building a Form
 
-1. In Visual Code open the [routes-and-forms][1] folder
+1. Open the [routes-and-forms][1] folder in VS Code.
 
 1. The [PetForm.js][2] file now contains the code for a [__controlled component__][4].
 
@@ -43,7 +43,7 @@
 
 1. Display the submitted values on the page in the results section
 
-1. Use a React.Fragment or short syntax (`<></>`) instead of a `<div>` to encapsulate the form
+1. Use a `<React.Fragment></React.Fragment>` or shorthand syntax (`<></>`) instead of a `<div>` to encapsulate the form
 
 1. Add a message "__*Thank you for submitting*__" to the output displayed in the `<div></div>` whenever the form is submitted
 
