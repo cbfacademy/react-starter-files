@@ -6,7 +6,7 @@
 
 1. Each route has a `<Link/>` component defined
 
-1. Run the `npm install` command from the terminal to install the project dependencies. Run `npm start` to start the project
+1. Run the `npm install` command from the terminal to install the project dependencies. Run `npm run dev` to start the project
 
 1. Create `<Puppies/>` and `<Ducklings/>` functional component. Use the `<Kittens/>` component as an example 
 
@@ -24,13 +24,13 @@
 
 ## Task 2: Building a Form
 
-1. In Visual Code open the [routes-and-forms][1] folder
+1. Open the [routes-and-forms][1] folder in VS Code.
 
 1. The [PetForm.js][2] file now contains the code for a [__controlled component__][4].
 
 1. Add the `<PetForm/>` component as a child component of the `<Home/>` component in the [index.js][2] file.
 
-1. Run the project using the `npm start` command to test the functionality
+1. Run the project using the `npm run dev` command to test the functionality
 
 1. The form contains a __name__ field which is a __controlled component__. Add an __age__ and a __colours__ form field as __controlled components__:
 
@@ -43,7 +43,7 @@
 
 1. Display the submitted values on the page in the results section
 
-1. Use a React.Fragment or short syntax (`<></>`) instead of a `<div>` to encapsulate the form
+1. Use a `<React.Fragment></React.Fragment>` or shorthand syntax (`<></>`) instead of a `<div>` to encapsulate the form
 
 1. Add a message "__*Thank you for submitting*__" to the output displayed in the `<div></div>` whenever the form is submitted
 

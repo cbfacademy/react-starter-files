@@ -11,12 +11,12 @@ npm install
 2. To open the application in a browser, run the following command: 
 
 ```Shell
-npm start
+npm run dev
 ```
 
 ![Expected Output](docs/simple-page1.png)
 
-3. Open the [src/index.js](task01/src/index.js) file. Update the `Profile()` function. Add an if-condition. When the variable `name` is populated (not empty) the `Profile()` function will return the JSX code below:
+3. Open the [src/index.jsx](task01/src/index.jsx) file. Update the `Profile()` function. Add an `if` condition. When the variable `name` is populated (i.e. has a defined, non-empty value), the `Profile()` function will return the JSX code below:
 
 ```JS
 <main id="content" role="main" className="base">
@@ -24,7 +24,17 @@ npm start
 	<p>[Your short bio goes here]</p>
 </main>
 ```
-_Display the code above if the `name` variable IS NOT EMPTY_
+_Display the code above if the `name` variable IS POPULATED_
+
+When the variable `name` is **not** populated (i.e. has an undefined, null or empty value), the function will return the JSX code below:
+
+```JS
+<main id="content" role="main" className="base">
+<h1>Just a React Page</h1>
+	<p>Nothing to see here!</p>
+</main>
+```
+_Display the code above if the `name` variable IS UNPOPULATED_
 
 - Example of calling the `Profile(name)` function with a populated `name` variable 'Eva':
 
@@ -63,11 +73,11 @@ In this task you will:
 npm install
 ```
 
-3. Move the `Profile()` function code from the previous task ([task01/src/index.js](task01/src/index.js)) into the [src/Profile.js](task02/src/Profile.js) file.
+3. Move the `Profile()` function code from the previous task ([task01/src/index.jsx](task01/src/index.jsx)) into the [src/Profile.jsx](task02/src/Profile.jsx) file.
 
-1. Replace the string returned in the [task01/src/index.js](task01/src/index.js) file with the JSX `Profile()` component. The component should  be called using XML-like syntax, eg. `<Profile>`
+4. Replace the string returned in the [task02/src/index.jsx](task02/src/index.jsx) file with a call to the JSX component. The component should  be called using XML-like syntax, eg. `<Profile /`>`
 
-1. Update the `Profile()` function to take one argument called `props`
+5. Update the `Profile()` function to take one argument called `props`
 
     - The `Profile()` function in the previous task had one argument: `name`
     - React functional components have one argument called `props`
@@ -82,14 +92,13 @@ function Profile(props)
  </main>
 }
 ```
-6. You will need to pass the properties via the JSX component you called in the index.js file e.g. 
+6. You will need to pass the properties via the JSX component you called in the index.jsx file e.g. 
 
 ```XML
 <Profile name="..." bio="..."/>
 ```
 
-7. Add an if-condition to the `Profile()` function.
-1. The `Profile()` function should return the `props.name` and `props.bio` from the `props` object, but only if the the properties are populated (not empty) on the JSX component.
+1. Modify the `if` condition in the `Profile()` function so that it returns the `props.name` and `props.bio` properties from the `props` object, but only if the attributes are populated (not empty) on the JSX component.
 
 ## Bonus Task: Greetings Form
 
